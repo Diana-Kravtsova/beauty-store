@@ -2,6 +2,7 @@ import path from 'path';
 import 'webpack-dev-server';
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 interface EnvVariables {
   mode?: 'development' | 'production';
@@ -9,14 +10,23 @@ interface EnvVariables {
 
 export default (env: EnvVariables) => {
   const isDev = env.mode === 'development';
+  const isProd = env.mode === 'production';
 
   const config: Configuration = {
     mode: env.mode ?? 'development',
-    entry: path.resolve(__dirname, 'src', 'index.ts'),
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
     devtool: isDev ? 'inline-source-map' : 'source-map',
 
     module: {
       rules: [
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            'css-loader',
+            'sass-loader',
+          ],
+        },
         {
           test: /\.tsx?$/,
           use: 'ts-loader',
@@ -30,6 +40,10 @@ export default (env: EnvVariables) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public', 'index.html'),
+      }),
+      isProd && new MiniCssExtractPlugin({
+        filename: 'css/[name].css',
+        chunkFilename: 'css/[id].css',
       }),
     ],
     output: {
