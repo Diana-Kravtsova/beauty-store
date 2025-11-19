@@ -4,6 +4,7 @@
   "description": "A modern Single Page Application for a skin care cosmetics store built with React, TypeScript and Webpack. The application integrates with DummyJSON API to display real product data with state management and data caching capabilities.",
   "main": "index.js",
   "scripts": {
+    "dev:port": "webpack serve --env mode=development --env port=5000",
     "dev": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
     "build": "webpack --env mode=production"
