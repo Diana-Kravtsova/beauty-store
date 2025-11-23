@@ -9,6 +9,7 @@ export function buildDevServer(options: BuildOptions): Configuration {
     },
     compress: true,
     port: options.port ?? 3000,
-    open: true
+    open: true,
+    historyApiFallback: true,
   };
 }
