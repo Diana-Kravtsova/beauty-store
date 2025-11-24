@@ -1,12 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter } from 'react-router';
-import { RouterProvider } from 'react-router';
+import { createBrowserRouter, RouterProvider } from 'react-router';
 
 import { App } from './App';
-import Login from './pages/Login';
-import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
+import { Home } from './pages/Home';
+import { LoginLazy } from './pages/Login/Login.lazy';
+import { ProductsLazy } from './pages/Products/Products.lazy';
+import { ProductDetailsLazy } from './pages/ProductDetails/ProductDetails.lazy';
+import { ErrorPage } from './pages/ErrorPage';
 
 const root = document.getElementById('root');
 if (!root) {
@@ -17,19 +18,24 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App/>,
+    errorElement: <ErrorPage/>,
     children: [
       {
-        path: '/login',
-        element: <Login/>,
+        index: true,
+        element: <Home/>,
       },
       {
-        path: '/products',
-        element: <Products/>,
+        path: 'login',
+        element: <LoginLazy/>,
       },
       {
-        path: '/product/:productId',
-        element: <ProductDetail/>,
+        path: 'products',
+        element: <ProductsLazy/>,
       },
+      {
+        path: 'products/:id',
+        element: <ProductDetailsLazy/>,
+      }
     ]
   },
 ]);

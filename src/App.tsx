@@ -11,9 +11,6 @@ export const App = () =>{
       <Link to="/login">Login</Link>
       <Link to="/products">Products</Link>
       <Button variant="contained">Hello world</Button>
-      <Box sx={{ width: '100%' }}>
-        <LinearProgress color="secondary" />
-      </Box>
       <Outlet/>
     </div>
   )
