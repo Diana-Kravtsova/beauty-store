@@ -1,17 +1,18 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router';
-import Button from '@mui/material/Button';
-import LinearProgress  from '@mui/material/LinearProgress';
-import Box  from '@mui/material/Box';
+import React, { Suspense } from 'react';
+import { Outlet } from 'react-router';
 import './styles/variables.scss';
+import PrimarySearchAppBar from './components/Header';
 
-export const App = () =>{
+export const App = () => {
   return (
     <div>
-      <Link to="/login">Login</Link>
-      <Link to="/products">Products</Link>
-      <Button variant="contained">Hello world</Button>
-      <Outlet/>
+      <PrimarySearchAppBar/>
+      <main>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet/>
+        </Suspense>
+      </main>
+      <footer>Footer</footer>
     </div>
-  )
-}
+  );
+};
