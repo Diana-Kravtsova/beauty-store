@@ -20,18 +20,29 @@ export interface LoginCredentials {
   password: string;
 }
 
-/*export interface Product {
+export interface ProductReviews {
+  rating: number;
+  comment: string;
+  date: string;
+  reviewerName: string;
+}
+
+export interface Product {
   id: number;
   title: string;
   description: string;
+  category: string;
   price: number;
   discountPercentage: number;
   rating: number;
   stock: number;
   brand: string;
-  category: string;
-  thumbnail: string;
+  warrantyInformation: string;
+  shippingInformation: string;
+  availabilityStatus: string;
+  reviews: ProductReviews[];
   images: string[];
+  thumbnail: string;
 }
 
 export interface ProductsResponse {
@@ -39,4 +50,4 @@ export interface ProductsResponse {
   total: number;
   skip: number;
   limit: number;
-}*/
+}
