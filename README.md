@@ -1,8 +1,8 @@
-# Beauty store
+# Store
 
 
 ## 🚀 Project Description
-A modern Single Page Application for a skin care cosmetics store built with React, TypeScript and Webpack. The application integrates with DummyJSON API to display real product data with state management and data caching capabilities.
+A modern Single Page Application for a store built with React, TypeScript and Webpack. The application integrates with DummyJSON API to display product data with state management and data caching capabilities.
 
 ## 🛠 Technologies
 - **Frontend**: React 18 with TypeScript

@@ -1,0 +1,52 @@
+{
+  "name": "beauty-store",
+  "version": "1.0.0",
+  "description": "A modern Single Page Application for a skin care cosmetics store built with React, TypeScript and Webpack. The application integrates with DummyJSON API to display real product data with state management and data caching capabilities.",
+  "main": "index.js",
+  "scripts": {
+    "dev:port": "webpack serve --env mode=development --env port=5000",
+    "dev": "webpack serve --env mode=development",
+    "build:dev": "webpack --env mode=development",
+    "build": "webpack --env mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diana-Kravtsova/beauty-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diana-Kravtsova/beauty-store/issues"
+  },
+  "homepage": "https://github.com/Diana-Kravtsova/beauty-store#readme",
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.2",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.4",
+    "sass": "^1.94.0",
+    "sass-loader": "^16.0.6",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "@reduxjs/toolkit": "^2.11.0",
+    "html-webpack-plugin": "^5.6.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.9.6"
+  }
+}
