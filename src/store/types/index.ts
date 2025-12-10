@@ -51,3 +51,30 @@ export interface ProductsResponse {
   skip: number;
   limit: number;
 }
+
+export interface CartItem {
+  id: number;
+  title: string;
+  price: number;
+  quantity?: number;
+  thumbnail?: string;
+  total?: number;
+}
+
+export interface WishlistItem {
+  id: number;
+  title: string;
+  price: number;
+  thumbnail?: string;
+  discountPercentage?: number;
+}
+
+export interface CartState {
+  items: CartItem[];
+  totalQuantity: number;
+  totalAmount: number;
+}
+
+export interface WishlistState {
+  items: WishlistItem[];
+}
