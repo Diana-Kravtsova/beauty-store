@@ -41,8 +41,8 @@ function Login() {
   return (
     <Container component="main" maxWidth="xs">
       <Box
+        my={6}
         sx={{
-          marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
