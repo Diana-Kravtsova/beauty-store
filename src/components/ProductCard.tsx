@@ -5,22 +5,18 @@ import {
   CardContent,
   CardActions,
   Typography,
-  Button,
   Box,
   Chip,
   Rating,
 } from '@mui/material';
-import { Product } from '../store/types';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useNavigate } from 'react-router';
+import { Product } from '../store/types';
+import CartButton from './CartButton';
+import WishlistButton from './WishlistButton';
 
-interface ProductCardProps {
-  product: Product;
-  //onAddToCart?: (product: Product) => void;
-}
-
-const ProductCard = ({product /*,onAddToCart*/}: ProductCardProps) => {
+const ProductCard = (product: Product) => {
   const navigate = useNavigate();
+
   const discountPrice = useMemo(() =>
       product.price * (1 - product.discountPercentage / 100),
     [product.price, product.discountPercentage]
@@ -30,13 +26,6 @@ const ProductCard = ({product /*,onAddToCart*/}: ProductCardProps) => {
     navigate(`/products/${product.id}`, {
       state: {product},
     });
-  };
-
-  const handleAddToCartClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    /*
-        onAddToCart?.(product);
-    */
   };
 
   return (
@@ -53,6 +42,7 @@ const ProductCard = ({product /*,onAddToCart*/}: ProductCardProps) => {
           boxShadow: '0 12px 20px rgba(0,0,0,0.1)',
           cursor: 'pointer',
         },
+        position: 'relative',
       }}
     >
       <Box sx={{position: 'relative'}}>
@@ -62,6 +52,15 @@ const ProductCard = ({product /*,onAddToCart*/}: ProductCardProps) => {
           image={product.thumbnail}
           alt={product.title}
           sx={{objectFit: 'contain'}}
+        />
+
+        <WishlistButton
+          product={{
+            id: product.id,
+            title: product.title,
+            price: discountPrice,
+            thumbnail: product.thumbnail
+          }}
         />
 
         {product.discountPercentage > 0 && (
@@ -139,14 +138,16 @@ const ProductCard = ({product /*,onAddToCart*/}: ProductCardProps) => {
           )}
         </Box>
 
-        <Button
+        <CartButton
+          product={{
+            id: product.id,
+            title: product.title,
+            price: discountPrice,
+            thumbnail: product.thumbnail
+          }}
           variant="contained"
-          startIcon={<ShoppingCartIcon/>}
-          onClick={handleAddToCartClick}
-          disabled={product.stock === 0}
-        >
-          {product.stock === 0 ? 'Out of stock' : 'Add to cart'}
-        </Button>
+          fullWidth
+        />
       </CardActions>
     </Card>
   );

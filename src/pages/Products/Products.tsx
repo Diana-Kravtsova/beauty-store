@@ -17,11 +17,10 @@ import {
 import Grid from '@mui/material/Grid';
 import ProductCard from '../../components/ProductCard';
 import { useGetSkincareProductsQuery } from '../../store/api/productsApi';
-import { Product } from '../../store/types';
 import Search from '../../components/Search';
 
 function Products() {
-  const { data, error, isLoading } = useGetSkincareProductsQuery();
+  const {data, error, isLoading} = useGetSkincareProductsQuery();
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<string>('');
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
@@ -29,11 +28,6 @@ function Products() {
   const itemsPerPage = 12;
 
   // Event handlers
-  const handleAddToCart = (product: Product) => {
-    console.log('Added to cart:', product);
-    // TODO Add cart logic
-  };
-
   const handleBrandToggle = (brand: string) => {
     setSelectedBrands((prev) =>
       prev.includes(brand)
@@ -89,14 +83,14 @@ function Products() {
         alignItems="center"
         minHeight="60vh"
       >
-        <CircularProgress />
+        <CircularProgress/>
       </Box>
     );
   }
 
   if (error) {
     return (
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Container maxWidth="lg" sx={{mt: 4}}>
         <Alert severity="error">
           Error loading products. Please try again later.
         </Alert>
@@ -105,7 +99,7 @@ function Products() {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="lg" sx={{py: 4}}>
       <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
         Products
       </Typography>
@@ -114,9 +108,9 @@ function Products() {
       </Typography>
 
       {/* Filters and search TODO own component */}
-      <Box sx={{ mt: 2, mb: 4 }}>
+      <Box sx={{mt: 2, mb: 4}}>
         <Grid container spacing={2} alignItems="center">
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{xs: 12, md: 6}}>
             <Search
               value={searchTerm}
               label="Search products"
@@ -127,7 +121,7 @@ function Products() {
             />
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{xs: 12, md: 6}}>
             <FormControl fullWidth>
               <InputLabel>Sort by</InputLabel>
               <Select
@@ -147,7 +141,7 @@ function Products() {
 
         {/* Brand filters */}
         {uniqueBrands.length > 0 && (
-          <Box sx={{ mt: 2 }}>
+          <Box sx={{mt: 2}}>
             <Typography variant="subtitle2" gutterBottom>
               Brands:
             </Typography>
@@ -177,11 +171,8 @@ function Products() {
         <>
           <Grid container spacing={3}>
             {paginatedProducts.map((product) => (
-              <Grid size={{ xs: 12, sm: 6, md: 6, lg: 3 }} key={product.id}>
-                <ProductCard
-                  product={product}
-                  /*onAddToCart={handleAddToCart}*/
-                />
+              <Grid size={{xs: 12, sm: 6, md: 6, lg: 3}} key={product.id}>
+                <ProductCard {...product}/>
               </Grid>
             ))}
           </Grid>
