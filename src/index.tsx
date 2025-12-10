@@ -12,6 +12,8 @@ import { ProductsLazy } from './pages/Products/Products.lazy';
 import { ProductDetailsLazy } from './pages/ProductDetails/ProductDetails.lazy';
 import { ErrorPage } from './pages/ErrorPage';
 import { store } from './store';
+import Cart from './pages/Cart';
+import Wishlist from './pages/Wishlist';
 
 const theme = createTheme({
   palette: {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <LoginLazy/>,
+      },
+      {
+        path: 'cart',
+        element: <Cart/>,
+      },
+      {
+        path: 'wishlist',
+        element: <Wishlist/>,
       },
       {
         path: 'products',
