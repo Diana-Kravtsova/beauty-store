@@ -10,6 +10,8 @@ import React from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { logout } from '../store/slices/authSlice';
+import HeaderCartIcon from './HeaderCartIcon';
+import HeaderWishlistIcon from './HeaderWishlistIcon';
 
 const navItems = [
   {
@@ -51,7 +53,8 @@ export default function Header() {
 
           {isAuthenticated && user ? (
             <Box sx={{display: 'flex', alignItems: 'center'}}>
-              {/*TODO basket*/}
+              <HeaderWishlistIcon/>
+              <HeaderCartIcon/>
               <Button
                 sx={{
                   mx: 1,
