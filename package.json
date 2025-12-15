@@ -7,7 +7,9 @@
     "dev:port": "webpack serve --env mode=development --env port=5000",
     "dev": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
-    "build": "webpack --env mode=production"
+    "build": "webpack --env mode=production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Diana-Kravtsova/beauty-store/issues"
   },
-  "homepage": "https://github.com/Diana-Kravtsova/beauty-store#readme",
+  "homepage": "https://diana-kravtsova.github.io/beauty-store",
   "devDependencies": {
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.5",
@@ -27,6 +29,7 @@
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "mini-css-extract-plugin": "^2.9.4",
     "sass": "^1.94.0",
     "sass-loader": "^16.0.6",

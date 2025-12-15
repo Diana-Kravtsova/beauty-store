@@ -32,7 +32,6 @@ const ProductCard = (product: Product) => {
     <Card
       onClick={handleViewDetails}
       sx={{
-        /*TODO make a file with all card styles*/
         height: '100%',
         display: 'flex',
         flexDirection: 'column',

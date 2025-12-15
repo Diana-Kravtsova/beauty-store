@@ -1,5 +1,5 @@
 # Store
-
+[DEMO](https://diana-kravtsova.github.io/beauty-store)
 
 ## 🚀 Project Description
 A modern Single Page Application for a store built with React, TypeScript and Webpack. The application integrates with DummyJSON API to display product data with state management and data caching capabilities.
@@ -11,7 +11,6 @@ A modern Single Page Application for a store built with React, TypeScript and We
 - **Data Fetching**: RTK Query (based on DummyJSON API)
 - **Routing**: React Router DOM
 - **UI Framework**: Material UI (MUI)
-- **Transpiler**: Babel with TypeScript support
 - **Package Manager**: npm
 
 ## 🔗 Resources

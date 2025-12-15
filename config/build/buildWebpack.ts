@@ -22,6 +22,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
       path: paths.output,
       filename: isDev ? '[name].js' : '[name].[contenthash].js',
       clean: true,
+      publicPath: '/'
     },
     devServer: isDev ? buildDevServer(options) : undefined,
   };

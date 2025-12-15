@@ -104,10 +104,9 @@ function Products() {
         Products
       </Typography>
       <Typography variant="subtitle1" color="text.secondary">
-        {data?.total || 0} products in category
+        {data?.total || 0} products total
       </Typography>
 
-      {/* Filters and search TODO own component */}
       <Box sx={{mt: 2, mb: 4}}>
         <Grid container spacing={2} alignItems="center">
           <Grid size={{xs: 12, md: 6}}>
