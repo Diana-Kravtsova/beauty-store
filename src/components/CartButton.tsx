@@ -21,13 +21,13 @@ interface CartButtonProps {
   fullWidth?: boolean;
 }
 
-const CartButton = ({
-                           product,
-                           variant = 'contained',
-                           size = 'medium',
-                           onClick,
-                           fullWidth = false
-                         }: CartButtonProps) => {
+export const CartButton = ({
+                             product,
+                             variant = 'contained',
+                             size = 'medium',
+                             onClick,
+                             fullWidth = false
+                           }: CartButtonProps) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {isAuthenticated} = useSelector((state: RootState) => state.auth);
@@ -77,5 +77,3 @@ const CartButton = ({
     </Button>
   );
 };
-
-export default CartButton;

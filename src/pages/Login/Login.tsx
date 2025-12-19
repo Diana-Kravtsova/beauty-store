@@ -15,7 +15,7 @@ import { useLoginMutation } from '../../store/api/authApi'
 import { useAppDispatch } from '../../store/hooks'
 import { setCredentials } from '../../store/slices/authSlice'
 
-function Login() {
+const Login = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
   const [login, { isLoading, error }] = useLoginMutation()

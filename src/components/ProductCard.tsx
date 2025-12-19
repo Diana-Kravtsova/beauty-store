@@ -11,10 +11,10 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { Product } from '../store/types';
-import CartButton from './CartButton';
-import WishlistButton from './WishlistButton';
+import { CartButton } from './CartButton';
+import { WishlistButton } from './WishlistButton';
 
-const ProductCard = (product: Product) => {
+export const ProductCard = (product: Product) => {
   const navigate = useNavigate();
 
   const discountPrice = useMemo(() =>
@@ -151,5 +151,3 @@ const ProductCard = (product: Product) => {
     </Card>
   );
 };
-
-export default ProductCard;

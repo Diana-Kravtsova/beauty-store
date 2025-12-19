@@ -6,14 +6,14 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { Provider } from 'react-redux';
 
 import { App } from './App';
-import Home from './pages/Home';
+import { Home } from './pages/Home';
 import { LoginLazy } from './pages/Login/Login.lazy';
 import { ProductsLazy } from './pages/Products/Products.lazy';
 import { ProductDetailsLazy } from './pages/ProductDetails/ProductDetails.lazy';
 import { ErrorPage } from './pages/ErrorPage';
 import { store } from './store';
-import Cart from './pages/Cart';
-import Wishlist from './pages/Wishlist';
+import { Cart } from './pages/Cart';
+import { Wishlist } from './pages/Wishlist';
 
 const theme = createTheme({
   palette: {

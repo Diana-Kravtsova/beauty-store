@@ -17,7 +17,7 @@ interface WishlistButtonProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-const WishlistButton = ({product, size = 'small'}: WishlistButtonProps) => {
+export const WishlistButton = ({product, size = 'small'}: WishlistButtonProps) => {
   const dispatch = useDispatch();
   const {isAuthenticated} = useSelector((state: RootState) => state.auth);
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
@@ -68,5 +68,3 @@ const WishlistButton = ({product, size = 'small'}: WishlistButtonProps) => {
     </Box>
   );
 };
-
-export default WishlistButton;

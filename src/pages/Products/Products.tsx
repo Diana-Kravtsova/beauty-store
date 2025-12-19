@@ -15,11 +15,11 @@ import {
   Stack,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ProductCard from '../../components/ProductCard';
+import { ProductCard } from '../../components/ProductCard';
 import { useGetSkincareProductsQuery } from '../../store/api/productsApi';
-import Search from '../../components/Search';
+import { Search } from '../../components/Search';
 
-function Products() {
+const Products = () => {
   const {data, error, isLoading} = useGetSkincareProductsQuery();
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<string>('');

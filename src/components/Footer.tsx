@@ -23,7 +23,7 @@ import {
 } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router';
 
-const Footer = () => {
+export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -208,5 +208,3 @@ const Footer = () => {
     </Box>
   );
 };
-
-export default Footer;

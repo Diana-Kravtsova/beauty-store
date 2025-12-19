@@ -2,9 +2,9 @@ import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { authApi } from './api/authApi'
 import { productsApi } from './api/productsApi'
-import authReducer from './slices/authSlice'
-import cartReducer from './slices/cartSlice';
-import wishlistReducer from './slices/wishlistSlice';
+import { authReducer } from './slices/authSlice'
+import { cartReducer } from './slices/cartSlice';
+import { wishlistReducer } from './slices/wishlistSlice';
 
 export const store = configureStore({
   reducer: {

@@ -25,7 +25,7 @@ import { removeFromCart, updateQuantity, clearCart } from '../store/slices/cartS
 import { useNavigate, Link } from 'react-router';
 import { useTheme } from '@mui/material/styles';
 
-const Cart = () => {
+export const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const theme = useTheme();
@@ -277,5 +277,3 @@ const Cart = () => {
     </Container>
   );
 };
-
-export default Cart;

@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
-const HeaderWishlistIcon = () => {
+export const HeaderWishlistIcon = () => {
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
   const {isAuthenticated} = useSelector((state: RootState) => state.auth);
 
@@ -18,7 +18,6 @@ const HeaderWishlistIcon = () => {
     <IconButton
       component={Link}
       to="/wishlist"
-      color="inherit"
       size="large"
     >
       {hasItems ? (
@@ -31,5 +30,3 @@ const HeaderWishlistIcon = () => {
     </IconButton>
   );
 };
-
-export default HeaderWishlistIcon;

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
-const HeaderCartIcon = () => {
+export const HeaderCartIcon = () => {
   const totalQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
   const {isAuthenticated} = useSelector((state: RootState) => state.auth);
 
@@ -15,7 +15,6 @@ const HeaderCartIcon = () => {
     <IconButton
       component={Link}
       to="/cart"
-      color="inherit"
       size="large"
     >
       <Badge badgeContent={totalQuantity} color="error">
@@ -24,5 +23,3 @@ const HeaderCartIcon = () => {
     </IconButton>
   );
 };
-
-export default HeaderCartIcon;

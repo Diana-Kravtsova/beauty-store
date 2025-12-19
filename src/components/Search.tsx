@@ -13,16 +13,16 @@ interface SearchFieldProps {
   onSearch?: (searchTerm: string) => void;
 }
 
-const Search = ({
-                  value = '',
-                  onChange,
-                  label,
-                  color = 'secondary',
-                  size = 'medium',
-                  sx,
-                  onSearch,
-                  ...props
-                }: SearchFieldProps) => {
+export const Search = ({
+                         value = '',
+                         onChange,
+                         label,
+                         color = 'secondary',
+                         size = 'medium',
+                         sx,
+                         onSearch,
+                         ...props
+                       }: SearchFieldProps) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && onSearch) {
       onSearch(value);
@@ -54,5 +54,3 @@ const Search = ({
     />
   );
 };
-
-export default Search;

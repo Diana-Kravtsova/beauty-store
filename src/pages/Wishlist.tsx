@@ -6,9 +6,9 @@ import { removeFromWishlist } from '../store/slices/wishlistSlice';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link, useNavigate } from 'react-router';
 import { Button } from '@mui/material';
-import CartButton from '../components/CartButton';
+import { CartButton } from '../components/CartButton';
 
-const Wishlist = () => {
+export const Wishlist = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
@@ -164,5 +164,3 @@ const Wishlist = () => {
     </Container>
   );
 };
-
-export default Wishlist;

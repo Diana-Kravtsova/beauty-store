@@ -10,8 +10,8 @@ import React from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { logout } from '../store/slices/authSlice';
-import HeaderCartIcon from './HeaderCartIcon';
-import HeaderWishlistIcon from './HeaderWishlistIcon';
+import { HeaderCartIcon } from './HeaderCartIcon';
+import { HeaderWishlistIcon } from './HeaderWishlistIcon';
 
 const navItems = [
   {
@@ -26,7 +26,7 @@ const navItems = [
   }
 ];
 
-export default function Header() {
+export const Header = () => {
   const dispatch = useAppDispatch();
   const {user, isAuthenticated} = useAppSelector((state) => state.auth);
   const handleLogout = () => {

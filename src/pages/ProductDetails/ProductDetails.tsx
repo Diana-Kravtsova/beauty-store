@@ -35,8 +35,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PersonIcon from '@mui/icons-material/Person';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useGetProductByIdQuery } from '../../store/api/productsApi';
-import WishlistButton from '../../components/WishlistButton';
-import CartButton from '../../components/CartButton';
+import { WishlistButton } from '../../components/WishlistButton';
+import { CartButton } from '../../components/CartButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
@@ -607,5 +607,4 @@ const ProductDetails = () => {
     </Container>
   );
 };
-
 export default ProductDetails;

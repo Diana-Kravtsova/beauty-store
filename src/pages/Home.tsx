@@ -44,6 +44,7 @@ const Home = () => {
     },
   ];
 
+export const Home = () => {
   return (
     <Box sx={{flexGrow: 1}}>
       <Paper
@@ -274,5 +275,3 @@ const Home = () => {
     </Box>
   );
 };
-
-export default Home;
