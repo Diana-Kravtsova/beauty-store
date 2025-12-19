@@ -20,29 +20,28 @@ import {
 } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router';
 
-const Home = () => {
-  const features = [
-    {
-      icon: <Store fontSize="large"/>,
-      title: 'Demo Products',
-      description: 'Browse our collection of demo products from various categories.',
-    },
-    {
-      icon: <LocalShipping fontSize="large"/>,
-      title: 'Fast Delivery',
-      description: 'Experience our efficient delivery system.',
-    },
-    {
-      icon: <Security fontSize="large"/>,
-      title: 'Secure Shopping',
-      description: 'Your data is protected with advanced security.',
-    },
-    {
-      icon: <Replay fontSize="large"/>,
-      title: 'Easy Returns',
-      description: 'Simple and hassle-free return process.',
-    },
-  ];
+const features = [
+  {
+    icon: <Store fontSize="large"/>,
+    title: 'Demo Products',
+    description: 'Browse our collection of demo products from various categories.',
+  },
+  {
+    icon: <LocalShipping fontSize="large"/>,
+    title: 'Fast Delivery',
+    description: 'Experience our efficient delivery system.',
+  },
+  {
+    icon: <Security fontSize="large"/>,
+    title: 'Secure Shopping',
+    description: 'Your data is protected with advanced security.',
+  },
+  {
+    icon: <Replay fontSize="large"/>,
+    title: 'Easy Returns',
+    description: 'Simple and hassle-free return process.',
+  },
+];
 
 export const Home = () => {
   return (
