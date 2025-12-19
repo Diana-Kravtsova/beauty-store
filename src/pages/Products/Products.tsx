@@ -99,7 +99,7 @@ function Products() {
   }
 
   return (
-    <Container maxWidth="lg" sx={{py: 4}}>
+    <Container maxWidth="lg">
       <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
         Products
       </Typography>

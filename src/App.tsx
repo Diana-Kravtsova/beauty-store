@@ -6,12 +6,12 @@ import Footer from './components/Footer';
 
 export const App = () => {
   return (
-    <div>
-      <PrimarySearchAppBar/>
-      <main>
-          <Outlet/>
-      </main>
+    <>
+      <Header/>
+      <Box component="main" sx={{py: 4}}>
+        <Outlet/>
+      </Box>
       <Footer/>
-    </div>
+    </>
   );
 };

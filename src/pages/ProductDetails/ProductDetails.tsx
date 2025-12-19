@@ -96,7 +96,7 @@ const ProductDetails = () => {
 
   if (error || !product) {
     return (
-      <Container maxWidth="lg" sx={{mt: 4}}>
+      <Container maxWidth="lg">
         <Alert severity="error" sx={{mb: 2}}>
           Product not found or error loading data.
         </Alert>
@@ -147,7 +147,7 @@ const ProductDetails = () => {
     : product.rating;
 
   return (
-    <Container maxWidth="lg" sx={{py: 4}}>
+    <Container maxWidth="lg">
       <Grid container spacing={4}>
         {/* Left Column - Images */}
         <Grid size={{xs: 12, md: 6}}>

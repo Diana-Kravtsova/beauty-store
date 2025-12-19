@@ -56,7 +56,7 @@ const Wishlist = () => {
   }
 
   return (
-    <Container maxWidth="lg" sx={{py: 4}}>
+    <Container maxWidth="lg">
       <Typography variant="h4" gutterBottom>
         My Wishlist ({wishlistItems.length} items)
       </Typography>
