@@ -22,8 +22,8 @@ import { Search } from '../../components/Search';
 const Products = () => {
   const {data, error, isLoading} = useGetSkincareProductsQuery();
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState<string>('');
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState('');
+  const [selectedBrands, setSelectedBrands] = useState([]);
   const [page, setPage] = useState(1);
   const itemsPerPage = 12;
 

@@ -25,8 +25,8 @@ const Login = () => {
     const formData = new FormData(event.currentTarget)
 
     const credentials = {
-      username: formData.get('username') as string,
-      password: formData.get('password') as string,
+      username: String(formData.get('username')),
+      password: String(formData.get('password')),
     }
 
     try {
