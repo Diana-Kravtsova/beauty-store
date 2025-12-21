@@ -54,12 +54,7 @@ export const ProductCard = (product: Product) => {
         />
 
         <WishlistButton
-          product={{
-            id: product.id,
-            title: product.title,
-            price: discountPrice,
-            thumbnail: product.thumbnail
-          }}
+          product={product}
         />
 
         {product.discountPercentage > 0 && (
@@ -138,12 +133,7 @@ export const ProductCard = (product: Product) => {
         </Box>
 
         <CartButton
-          product={{
-            id: product.id,
-            title: product.title,
-            price: discountPrice,
-            thumbnail: product.thumbnail
-          }}
+          product={product}
           variant="contained"
           fullWidth
         />

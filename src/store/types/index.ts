@@ -53,20 +53,9 @@ export interface ProductsResponse {
 }
 
 export interface CartItem {
-  id: number;
-  title: string;
-  price: number;
+  product: Product
   quantity?: number;
-  thumbnail?: string;
   total?: number;
-}
-
-export interface WishlistItem {
-  id: number;
-  title: string;
-  price: number;
-  thumbnail?: string;
-  discountPercentage?: number;
 }
 
 export interface CartState {
@@ -76,5 +65,5 @@ export interface CartState {
 }
 
 export interface WishlistState {
-  items: WishlistItem[];
+  items: Product[];
 }

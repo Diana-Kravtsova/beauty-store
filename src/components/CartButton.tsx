@@ -6,15 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { addToCart } from '../store/slices/cartSlice';
 import { useNavigate } from 'react-router';
+import { Product } from '../store/types';
 
 interface CartButtonProps {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    quantity?: number;
-    thumbnail?: string;
-  };
+  product: Product;
+  quantity?: number;
   variant?: 'text' | 'outlined' | 'contained';
   size?: 'small' | 'medium' | 'large';
   onClick?: (e: React.MouseEvent) => void;
@@ -23,6 +19,7 @@ interface CartButtonProps {
 
 export const CartButton = ({
                              product,
+                             quantity = 1,
                              variant = 'contained',
                              size = 'medium',
                              onClick,
@@ -32,7 +29,9 @@ export const CartButton = ({
   const navigate = useNavigate();
   const {isAuthenticated} = useSelector((state: RootState) => state.auth);
   const cartItems = useSelector((state: RootState) => state.cart.items);
-  const isInCart = cartItems.some(item => item.id === product.id);
+  const isInCart = cartItems.some(cartItem => {
+    return cartItem && cartItem.product && cartItem.product.id === product.id;
+  });
 
   const handleAddToCart = (e: React.MouseEvent) => {
     if (onClick) {
@@ -50,11 +49,8 @@ export const CartButton = ({
       navigate('/cart');
     } else {
       dispatch(addToCart({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        quantity: product.quantity,
-        thumbnail: product.thumbnail,
+        product,
+        quantity,
       }));
     }
   };

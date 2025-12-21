@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { WishlistItem, WishlistState } from '../types';
+import { Product, WishlistState } from '../types';
 
 const loadWishlistFromStorage = (): WishlistState => {
   const saved = localStorage.getItem('wishlist');
@@ -12,7 +12,7 @@ export const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
   reducers: {
-    addToWishlist: (state, action: PayloadAction<WishlistItem>) => {
+    addToWishlist: (state, action: PayloadAction<Product>) => {
       const existingItem = state.items.find(item => item.id === action.payload.id);
       if (!existingItem) {
         state.items.push(action.payload);

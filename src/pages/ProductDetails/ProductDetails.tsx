@@ -167,12 +167,7 @@ const ProductDetails = () => {
             />
 
             <WishlistButton
-              product={{
-                id: product.id,
-                title: product.title,
-                price: discountPrice,
-                thumbnail: product.thumbnail
-              }}
+              product={product}
               size={'large'}
             />
 
@@ -377,13 +372,8 @@ const ProductDetails = () => {
             </Stack>
 
             <CartButton
-              product={{
-                id: product.id,
-                title: product.title,
-                price: discountPrice,
-                thumbnail: product.thumbnail,
-                quantity: quantity
-              }}
+              product={product}
+              quantity={quantity}
               variant="contained"
               fullWidth
             />

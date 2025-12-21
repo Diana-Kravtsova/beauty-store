@@ -137,12 +137,7 @@ export const Wishlist = () => {
                   <Box sx={{display: 'flex', justifyContent: 'space-between', gap: 1, alignItems: 'center'}}>
                     <Box sx={{flexGrow: 1}} onClick={(e) => e.stopPropagation()}>
                       <CartButton
-                        product={{
-                          id: item.id,
-                          title: item.title,
-                          price: discountPrice,
-                          thumbnail: item.thumbnail
-                        }}
+                        product={item}
                         variant="contained"
                         size="small"
                         fullWidth

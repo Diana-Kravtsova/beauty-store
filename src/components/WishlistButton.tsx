@@ -5,15 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { addToWishlist, removeFromWishlist } from '../store/slices/wishlistSlice';
 import React from 'react';
+import { Product } from '../store/types';
 
 interface WishlistButtonProps {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    images?: string[];
-    thumbnail?: string;
-  };
+  product: Product;
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -35,12 +30,7 @@ export const WishlistButton = ({product, size = 'small'}: WishlistButtonProps) =
     if (isInWishlist) {
       dispatch(removeFromWishlist(product.id));
     } else {
-      dispatch(addToWishlist({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        thumbnail: product.thumbnail,
-      }));
+      dispatch(addToWishlist(product));
     }
   };
 

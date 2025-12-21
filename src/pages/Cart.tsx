@@ -51,6 +51,13 @@ export const Cart = () => {
     navigate(`/products/${productId}`);
   };
 
+  const calculateDiscountPrice = (price: number, discountPercentage?: number) => {
+    if (discountPercentage && discountPercentage > 0) {
+      return price * (1 - discountPercentage / 100);
+    }
+    return price;
+  };
+
   if (!isAuthenticated) {
     return (
       <Container>
@@ -98,106 +105,133 @@ export const Cart = () => {
 
       <Grid container spacing={3}>
         <Grid sx={{xs: 12, md: 8}}>
-          {items.map((item) => (
-            <Card key={item.id} sx={{mb: 2, display: 'flex', width: '100%'}}>
-              <Box
-                onClick={() => handleProductClick(item.id)}
-                sx={{
-                  cursor: 'pointer',
-                  height: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={item.thumbnail}
-                  alt={item.title}
-                  sx={{
-                    objectFit: 'contain',
-                    width: '100%',
-                    transition: 'transform 0.2s',
-                    '&:hover': {
-                      transform: 'scale(1.05)'
-                    }
-                  }}
-                />
-              </Box>
+          {items.map((cartItem) => {
+            const item = cartItem.product;
+            const hasDiscount = item.discountPercentage && item.discountPercentage > 0;
+            const discountPrice = hasDiscount
+              ? calculateDiscountPrice(item.price, item.discountPercentage)
+              : item.price;
 
-              <CardContent sx={{
-                flexGrow: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-              }}>
-                <MuiLink
-                  component="button"
-                  variant="h6"
+            return (
+              <Card key={item.id} sx={{mb: 2, display: 'flex', width: '100%'}}>
+                <Box
                   onClick={() => handleProductClick(item.id)}
                   sx={{
-                    textAlign: 'left',
-                    color: 'text.primary',
-                    '&:hover': {
-                      color: 'primary.main',
-                      textDecoration: 'underline'
-                    }
+                    cursor: 'pointer',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  {item.title}
-                </MuiLink>
-
-                <Typography variant="body1" color="text.secondary" sx={{mt: 1}}>
-                  ${item.price.toFixed(2)} each
-                </Typography>
-
-                <Box sx={{display: 'flex', alignItems: 'center', mt: 2, justifyContent: 'space-between'}}>
-                  <Stack
-                    direction="row"
-                    alignItems="center"
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={item.thumbnail}
+                    alt={item.title}
                     sx={{
-                      border: 1,
-                      borderColor: theme.palette.primary.main,
-                      borderRadius: 1,
-                      flexShrink: 0
+                      objectFit: 'contain',
+                      width: '100%',
+                      transition: 'transform 0.2s',
+                      '&:hover': {
+                        transform: 'scale(1.05)'
+                      }
+                    }}
+                  />
+                </Box>
+
+                <CardContent sx={{
+                  flexGrow: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '100%',
+                }}>
+                  <MuiLink
+                    component="button"
+                    variant="h6"
+                    onClick={() => handleProductClick(item.id)}
+                    sx={{
+                      textAlign: 'left',
+                      color: 'text.primary',
+                      '&:hover': {
+                        color: 'primary.main',
+                        textDecoration: 'underline'
+                      }
                     }}
                   >
-                    <IconButton
-                      size="small"
-                      onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                      sx={{minWidth: '40px', height: '40px'}}
-                      disabled={item.quantity <= 1}
-                    >
-                      <RemoveIcon fontSize="small"/>
-                    </IconButton>
-                    <Typography sx={{width: '40px', textAlign: 'center'}}>
-                      {item.quantity}
+                    {item.title}
+                  </MuiLink>
+
+                 {/* <Typography variant="body1" color="text.secondary" sx={{mt: 1}}>
+                    ${item.price.toFixed(2)} each
+                  </Typography>*/}
+
+                  {hasDiscount ? (
+                    <>
+                      <Typography variant="h6" color="primary" sx={{fontWeight: 'bold'}}>
+                        ${discountPrice.toFixed(2)}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{textDecoration: 'line-through'}}
+                      >
+                        ${item.price.toFixed(2)}
+                      </Typography>
+                    </>
+                  ) : (
+                    <Typography variant="h6" color="primary" sx={{fontWeight: 'bold'}}>
+                      ${item.price.toFixed(2)}
                     </Typography>
-                    <IconButton
-                      size="small"
-                      onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                      sx={{minWidth: '40px', height: '40px'}}
+                  )}
+
+                  <Box sx={{display: 'flex', alignItems: 'center', mt: 2, justifyContent: 'space-between'}}>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      sx={{
+                        border: 1,
+                        borderColor: theme.palette.primary.main,
+                        borderRadius: 1,
+                        flexShrink: 0
+                      }}
                     >
-                      <AddIcon fontSize="small"/>
+                      <IconButton
+                        size="small"
+                        onClick={() => handleQuantityChange(item.id, cartItem.quantity - 1)}
+                        sx={{minWidth: '40px', height: '40px'}}
+                        disabled={cartItem.quantity <= 1}
+                      >
+                        <RemoveIcon fontSize="small"/>
+                      </IconButton>
+                      <Typography sx={{width: '40px', textAlign: 'center'}}>
+                        {cartItem.quantity}
+                      </Typography>
+                      <IconButton
+                        size="small"
+                        onClick={() => handleQuantityChange(item.id, cartItem.quantity + 1)}
+                        sx={{minWidth: '40px', height: '40px'}}
+                      >
+                        <AddIcon fontSize="small"/>
+                      </IconButton>
+                    </Stack>
+
+                    <Typography variant="h6" color="primary">
+                      ${cartItem.total.toFixed(2)}
+                    </Typography>
+
+                    <IconButton
+                      color="error"
+                      onClick={() => dispatch(removeFromCart(item.id))}
+                      sx={{flexShrink: 0}}
+                    >
+                      <DeleteIcon/>
                     </IconButton>
-                  </Stack>
-
-                  <Typography variant="h6" color="primary">
-                    ${item.total.toFixed(2)}
-                  </Typography>
-
-                  <IconButton
-                    color="error"
-                    onClick={() => dispatch(removeFromCart(item.id))}
-                    sx={{flexShrink: 0}}
-                  >
-                    <DeleteIcon/>
-                  </IconButton>
-                </Box>
-              </CardContent>
-            </Card>
-          ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            );
+          })}
 
           <Box sx={{display: 'flex', gap: 2, mt: 3}}>
             <Button
