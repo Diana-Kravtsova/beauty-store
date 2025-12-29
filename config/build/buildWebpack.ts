@@ -6,7 +6,7 @@ import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/types';
 
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
-  const {mode, paths} = options;
+  const { mode, paths } = options;
   const isDev = mode === 'development';
 
   return {
@@ -22,7 +22,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
       path: paths.output,
       filename: isDev ? '[name].js' : '[name].[contenthash].js',
       clean: true,
-      publicPath: '/'
+      publicPath: '/',
     },
     devServer: isDev ? buildDevServer(options) : undefined,
   };

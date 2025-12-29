@@ -29,34 +29,34 @@ if (!root) {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>,
-    errorElement: <ErrorPage/>,
+    element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: 'login',
-        element: <LoginLazy/>,
+        element: <LoginLazy />,
       },
       {
         path: 'cart',
-        element: <Cart/>,
+        element: <Cart />,
       },
       {
         path: 'wishlist',
-        element: <Wishlist/>,
+        element: <Wishlist />,
       },
       {
         path: 'products',
-        element: <ProductsLazy/>,
+        element: <ProductsLazy />,
       },
       {
         path: 'products/:id',
-        element: <ProductDetailsLazy/>,
-      }
-    ]
+        element: <ProductDetailsLazy />,
+      },
+    ],
   },
 ]);
 
@@ -65,9 +65,9 @@ container.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <CssBaseline/>
-        <RouterProvider router={router}/>
+        <CssBaseline />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

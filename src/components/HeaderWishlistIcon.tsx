@@ -4,28 +4,24 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link } from 'react-router';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { RootState } from '@/store';
 
 export const HeaderWishlistIcon = () => {
   const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
-  const {isAuthenticated} = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
   if (!isAuthenticated) return null;
 
   const hasItems = wishlistItems.length > 0;
 
   return (
-    <IconButton
-      component={Link}
-      to="/wishlist"
-      size="large"
-    >
+    <IconButton component={Link} to='/wishlist' size='large'>
       {hasItems ? (
-        <Badge badgeContent={wishlistItems.length} color="error">
-          <FavoriteIcon/>
+        <Badge badgeContent={wishlistItems.length} color='error'>
+          <FavoriteIcon />
         </Badge>
       ) : (
-        <FavoriteBorderIcon/>
+        <FavoriteBorderIcon />
       )}
     </IconButton>
   );

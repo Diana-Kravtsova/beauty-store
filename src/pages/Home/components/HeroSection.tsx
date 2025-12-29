@@ -19,7 +19,7 @@ export const HeroSection = () => {
         px: 2,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth='lg'>
         <Box
           sx={{
             position: 'relative',
@@ -28,29 +28,19 @@ export const HeroSection = () => {
           }}
         >
           <ShoppingBag sx={{ fontSize: 60, mb: 2 }} />
-          <Typography
-            component="h1"
-            variant="h2"
-            color="inherit"
-            gutterBottom
-            sx={{ fontWeight: 'bold' }}
-          >
+          <Typography component='h1' variant='h2' color='inherit' gutterBottom sx={{ fontWeight: 'bold' }}>
             Welcome
           </Typography>
-          <Typography variant="h5" color="inherit" sx={{ mb: 4, opacity: 0.9 }}>
-            A demonstration e-commerce platform built with React and MUI.
-            Explore our demo products and experience the interface.
+          <Typography variant='h5' color='inherit' sx={{ mb: 4, opacity: 0.9 }}>
+            A demonstration e-commerce platform built with React and MUI. Explore our demo products and experience the
+            interface.
           </Typography>
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={2}
-            justifyContent="center"
-          >
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent='center'>
             <Button
               component={RouterLink}
-              to="/products"
-              variant="contained"
-              size="large"
+              to='/products'
+              variant='contained'
+              size='large'
               endIcon={<ArrowForward />}
               sx={{
                 px: 4,
@@ -62,9 +52,9 @@ export const HeroSection = () => {
             </Button>
             <Button
               component={RouterLink}
-              to="/login"
-              variant="outlined"
-              size="large"
+              to='/login'
+              variant='outlined'
+              size='large'
               sx={{
                 px: 4,
                 py: 1.5,

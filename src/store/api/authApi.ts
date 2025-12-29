@@ -6,16 +6,16 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://dummyjson.com/auth/',
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     login: builder.mutation<User, LoginCredentials>({
-      query: (credentials) => ({
+      query: credentials => ({
         url: 'login',
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
       }),
     }),
   }),
 });
 
-export const {useLoginMutation} = authApi;
+export const { useLoginMutation } = authApi;

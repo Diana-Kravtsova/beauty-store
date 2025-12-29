@@ -8,11 +8,11 @@ import { Box } from '@mui/material';
 export const App = () => {
   return (
     <>
-      <Header/>
-      <Box component="main" sx={{py: 4}}>
-        <Outlet/>
+      <Header />
+      <Box component='main' sx={{ py: 4 }}>
+        <Outlet />
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -35,10 +35,10 @@ export const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
         {icon}
       </Box>
       <CardContent sx={{ flexGrow: 1, p: 0 }}>
-        <Typography gutterBottom variant="h6" component="h3">
+        <Typography gutterBottom variant='h6' component='h3'>
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant='body2' color='text.secondary'>
           {description}
         </Typography>
       </CardContent>

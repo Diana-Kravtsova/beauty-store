@@ -1,30 +1,21 @@
 import React, { useMemo } from 'react';
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Box,
-  Chip,
-  Rating,
-} from '@mui/material';
+import { Card, CardMedia, CardContent, CardActions, Typography, Box, Chip, Rating } from '@mui/material';
 import { useNavigate } from 'react-router';
-import { Product } from '../store/types';
+import { Product } from '@/store/types';
 import { CartButton } from './Cart/CartButton';
 import { WishlistButton } from './WishlistButton';
 
 export const ProductCard = (product: Product) => {
   const navigate = useNavigate();
 
-  const discountPrice = useMemo(() =>
-      product.price * (1 - product.discountPercentage / 100),
-    [product.price, product.discountPercentage]
+  const discountPrice = useMemo(
+    () => product.price * (1 - product.discountPercentage / 100),
+    [product.price, product.discountPercentage],
   );
 
   const handleViewDetails = () => {
     navigate(`/products/${product.id}`, {
-      state: {product},
+      state: { product },
     });
   };
 
@@ -44,24 +35,22 @@ export const ProductCard = (product: Product) => {
         position: 'relative',
       }}
     >
-      <Box sx={{position: 'relative'}}>
+      <Box sx={{ position: 'relative' }}>
         <CardMedia
-          component="img"
-          height="200"
+          component='img'
+          height='200'
           image={product.thumbnail}
           alt={product.title}
-          sx={{objectFit: 'contain'}}
+          sx={{ objectFit: 'contain' }}
         />
 
-        <WishlistButton
-          product={product}
-        />
+        <WishlistButton product={product} />
 
         {product.discountPercentage > 0 && (
           <Chip
             label={`-${product.discountPercentage}%`}
-            color="error"
-            size="small"
+            color='error'
+            size='small'
             sx={{
               position: 'absolute',
               top: 8,
@@ -71,14 +60,14 @@ export const ProductCard = (product: Product) => {
         )}
       </Box>
 
-      <CardContent sx={{flexGrow: 1}}>
-        <Typography gutterBottom variant="h6" component="h3" noWrap>
+      <CardContent sx={{ flexGrow: 1 }}>
+        <Typography gutterBottom variant='h6' component='h3' noWrap>
           {product.title}
         </Typography>
 
         <Typography
-          variant="body2"
-          color="text.secondary"
+          variant='body2'
+          color='text.secondary'
           sx={{
             mb: 2,
             display: '-webkit-box',
@@ -90,53 +79,41 @@ export const ProductCard = (product: Product) => {
           {product.description}
         </Typography>
 
-        <Box sx={{display: 'flex', alignItems: 'center', mb: 1}}>
-          <Rating value={product.rating} precision={0.5} readOnly size="small"/>
-          <Typography variant="body2" color="text.secondary" sx={{ml: 1}}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <Rating value={product.rating} precision={0.5} readOnly size='small' />
+          <Typography variant='body2' color='text.secondary' sx={{ ml: 1 }}>
             ({product.rating})
           </Typography>
         </Box>
 
-        <Typography variant="body2" color="text.secondary" sx={{mb: 1}}>
+        <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
           Brand: {product.brand}
         </Typography>
 
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant='body2' color='text.secondary'>
           In stock: {product.stock} pcs.
         </Typography>
       </CardContent>
 
-      <CardActions sx={{justifyContent: 'space-between', p: 2, pt: 0}}>
+      <CardActions sx={{ justifyContent: 'space-between', p: 2, pt: 0 }}>
         <Box>
           {product.discountPercentage > 0 ? (
             <>
-              <Typography
-                variant="h6"
-                color="primary"
-                sx={{fontWeight: 'bold'}}
-              >
+              <Typography variant='h6' color='primary' sx={{ fontWeight: 'bold' }}>
                 ${discountPrice.toFixed(2)}
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{textDecoration: 'line-through'}}
-              >
+              <Typography variant='body2' color='text.secondary' sx={{ textDecoration: 'line-through' }}>
                 ${product.price.toFixed(2)}
               </Typography>
             </>
           ) : (
-            <Typography variant="h6" color="primary" sx={{fontWeight: 'bold'}}>
+            <Typography variant='h6' color='primary' sx={{ fontWeight: 'bold' }}>
               ${product.price.toFixed(2)}
             </Typography>
           )}
         </Box>
 
-        <CartButton
-          product={product}
-          variant="contained"
-          fullWidth
-        />
+        <CartButton product={product} variant='contained' fullWidth />
       </CardActions>
     </Card>
   );

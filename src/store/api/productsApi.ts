@@ -3,19 +3,16 @@ import { ProductsResponse, Product } from '../types';
 
 export const productsApi = createApi({
   reducerPath: 'productsApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://dummyjson.com/'}),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
   tagTypes: ['Products'],
-  endpoints: (build) => ({
+  endpoints: build => ({
     getSkincareProducts: build.query<ProductsResponse, void>({
       query: () => 'products',
     }),
     getProductById: build.query<Product, string>({
-      query: (id) => `products/${id}`,
+      query: id => `products/${id}`,
     }),
   }),
 });
 
-export const {
-  useGetSkincareProductsQuery,
-  useGetProductByIdQuery
-} = productsApi;
+export const { useGetSkincareProductsQuery, useGetProductByIdQuery } = productsApi;

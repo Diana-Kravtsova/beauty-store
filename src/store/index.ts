@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/query'
-import { authApi } from './api/authApi'
-import { productsApi } from './api/productsApi'
-import { authReducer } from './slices/authSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { authApi } from './api/authApi';
+import { productsApi } from './api/productsApi';
+import { authReducer } from './slices/authSlice';
 import { cartReducer } from './slices/cartSlice';
 import { wishlistReducer } from './slices/wishlistSlice';
 
@@ -14,13 +14,10 @@ export const store = configureStore({
     cart: cartReducer,
     wishlist: wishlistReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(authApi.middleware)
-      .concat(productsApi.middleware),
-})
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(authApi.middleware).concat(productsApi.middleware),
+});
 
-setupListeners(store.dispatch)
+setupListeners(store.dispatch);
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

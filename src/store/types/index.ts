@@ -53,7 +53,7 @@ export interface ProductsResponse {
 }
 
 export interface CartItem {
-  product: Product
+  product: Product;
   quantity?: number;
   total?: number;
 }

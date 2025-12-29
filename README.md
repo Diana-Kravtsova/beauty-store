@@ -1,10 +1,13 @@
 # Store
+
 [DEMO](https://diana-kravtsova.github.io/beauty-store)
 
 ## 🚀 Project Description
+
 A modern Single Page Application for a store built with React, TypeScript and Webpack. The application integrates with DummyJSON API to display product data with state management and data caching capabilities.
 
 ## 🛠 Technologies
+
 - **Frontend**: React 18 with TypeScript
 - **Build Tool**: Webpack 5
 - **State management**: Redux Toolkit
@@ -33,6 +36,7 @@ A modern Single Page Application for a store built with React, TypeScript and We
 - **Responsive Design**: Mobile-first approach with MUI
 
 ## 📦 Installation & Setup
+
 ### **Prerequisites**
 
 - Node.js (version 14 or higher)
@@ -42,26 +46,27 @@ A modern Single Page Application for a store built with React, TypeScript and We
 
 1. **Clone the repository**
 
-    ```bash
-        git clone <repository-url>
-        cd beauty-store
-    ```
+   ```bash
+       git clone <repository-url>
+       cd beauty-store
+   ```
 
 2. **Install dependencies**
-    
-    ```bash
-        npm install
-    ```
+
+   ```bash
+       npm install
+   ```
 
 3. **Start development server**
-    
-    ```bash
-        npm start
-    ```
+
+   ```bash
+       npm start
+   ```
 
    The application will open at`http://localhost:3000`
 
 4. **Build for production**
 
-    ```bash
-        npm run build
+   ```bash
+       npm run build
+   ```

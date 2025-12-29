@@ -4,15 +4,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   const isDev = options.mode === 'development';
-  const isProd = options.mode === 'production';
 
   const scssLoader = {
     test: /\.s[ac]ss$/i,
-    use: [
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      'css-loader',
-      'sass-loader',
-    ],
+    use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
   };
 
   const tsLoader = {
@@ -21,8 +16,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     exclude: /node_modules/,
   };
 
-  return [
-    scssLoader,
-    tsLoader,
-  ];
+  return [scssLoader, tsLoader];
 }

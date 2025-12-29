@@ -18,7 +18,7 @@ export const authSlice = createSlice({
       state.isAuthenticated = true;
       localStorage.setItem('user', JSON.stringify(action.payload));
     },
-    logout: (state) => {
+    logout: state => {
       state.user = null;
       state.isAuthenticated = false;
       localStorage.removeItem('user');
@@ -28,5 +28,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const {setCredentials, logout} = authSlice.actions;
+export const { setCredentials, logout } = authSlice.actions;
 export const authReducer = authSlice.reducer;
