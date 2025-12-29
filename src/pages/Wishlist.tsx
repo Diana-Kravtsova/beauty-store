@@ -6,7 +6,7 @@ import { removeFromWishlist } from '../store/slices/wishlistSlice';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link, useNavigate } from 'react-router';
 import { Button } from '@mui/material';
-import { CartButton } from '../components/CartButton';
+import { CartButton } from '../components/Cart/CartButton';
 
 export const Wishlist = () => {
   const dispatch = useDispatch();

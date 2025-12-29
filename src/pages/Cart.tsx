@@ -24,6 +24,8 @@ import { RootState } from '../store';
 import { removeFromCart, updateQuantity, clearCart } from '../store/slices/cartSlice';
 import { useNavigate, Link } from 'react-router';
 import { useTheme } from '@mui/material/styles';
+import { CartEmpty } from '../components/Cart/CartEmpty';
+import { CartAuthGuard } from '../components/Cart/CartAuthGuard';
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -59,42 +61,11 @@ export const Cart = () => {
   };
 
   if (!isAuthenticated) {
-    return (
-      <Container>
-        <Typography variant="h5" align="center" sx={{mt: 4}}>
-          Please login to view your cart
-        </Typography>
-        <Box textAlign="center" sx={{mt: 2}}>
-          <Button
-            component={Link}
-            to="/"
-            variant="contained"
-            startIcon={<HomeIcon/>}
-          >
-            Go to Home
-          </Button>
-        </Box>
-      </Container>
-    );
+    return <CartAuthGuard />;
   }
 
   if (items.length === 0) {
-    return (
-      <Container>
-        <Typography variant="h5" align="center" sx={{mt: 4}}>
-          Your cart is empty
-        </Typography>
-        <Box textAlign="center" sx={{mt: 2}}>
-          <Button
-            variant="contained"
-            onClick={handleContinueShopping}
-            startIcon={<ArrowBackIcon/>}
-          >
-            Continue Shopping
-          </Button>
-        </Box>
-      </Container>
-    );
+    return <CartEmpty />;
   }
 
   return (

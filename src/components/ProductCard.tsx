@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { Product } from '../store/types';
-import { CartButton } from './CartButton';
+import { CartButton } from './Cart/CartButton';
 import { WishlistButton } from './WishlistButton';
 
 export const ProductCard = (product: Product) => {

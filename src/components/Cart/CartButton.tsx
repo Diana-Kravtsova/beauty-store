@@ -3,10 +3,10 @@ import { Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { addToCart } from '../store/slices/cartSlice';
+import { RootState } from '../../store';
+import { addToCart } from '../../store/slices/cartSlice';
 import { useNavigate } from 'react-router';
-import { Product } from '../store/types';
+import { Product } from '../../store/types';
 
 interface CartButtonProps {
   product: Product;

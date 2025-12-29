@@ -6,7 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { Provider } from 'react-redux';
 
 import { App } from './App';
-import { Home } from './pages/Home';
+import { Home } from './pages/Home/Home';
 import { LoginLazy } from './pages/Login/Login.lazy';
 import { ProductsLazy } from './pages/Products/Products.lazy';
 import { ProductDetailsLazy } from './pages/ProductDetails/ProductDetails.lazy';
