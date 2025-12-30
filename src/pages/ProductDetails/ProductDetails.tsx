@@ -9,7 +9,6 @@ import {
   Rating,
   Chip,
   Divider,
-  CircularProgress,
   Alert,
   Tabs,
   Tab,
@@ -39,6 +38,7 @@ import { WishlistButton } from '@/components/WishlistButton';
 import { CartButton } from '@/components/Cart/CartButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { ProductsLoading } from '@/components/Product/ProductsLoading';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -85,13 +85,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [tabValue, setTabValue] = useState(0);
 
-  if (isLoading) {
-    return (
-      <Box display='flex' justifyContent='center' alignItems='center' minHeight='60vh'>
-        <CircularProgress />
-      </Box>
-    );
-  }
+  if (isLoading) return <ProductsLoading />;
 
   if (error || !product) {
     return (

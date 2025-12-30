@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { Card, CardMedia, CardContent, CardActions, Typography, Box, Chip, Rating } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { Product } from '@/store/types';
-import { CartButton } from './Cart/CartButton';
-import { WishlistButton } from './WishlistButton';
+import { CartButton } from '../Cart/CartButton';
+import { WishlistButton } from '../WishlistButton';
 
 export const ProductCard = (product: Product) => {
   const navigate = useNavigate();
