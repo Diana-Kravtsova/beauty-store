@@ -1,6 +1,6 @@
 # Store
 
-[DEMO](https://diana-kravtsova.github.io/beauty-store)
+[DEMO](https://beauty-store-3pprem7gv-dianas-projects-30c0e837.vercel.app/)
 
 ## 🚀 Project Description
 
