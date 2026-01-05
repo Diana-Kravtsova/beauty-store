@@ -1,2 +1,12 @@
-*.log
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# IDE
 .idea
+.vscode/
+
+# Logs
+*.log
